@@ -1,6 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+@font-face {
+  font-family: "MyFont";
+  src: url("./Roboto-Regular.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
 .hello {
   color: orangered;
   background: url("./markus-spiske-qjnAnF0jIGk-unsplash.jpg");
+  font-family: "Myfont";
 }
 
 img {
