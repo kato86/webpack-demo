@@ -10,6 +10,15 @@ module.exports = {
       title: "Caching"
     })
   ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, "src"),
+        loader: "babel-loader"
+      }
+    ]
+  },
   mode: "development",
   output: {
     path: path.resolve(__dirname, "dist"),
