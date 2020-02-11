@@ -1,50 +1,24 @@
 const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    app: "/src/index.js"
+  },
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./dist",
+    hot: true
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Caching"
+      title: "Hot Module Replacement"
     })
   ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        include: path.resolve(__dirname, "src")
-        // loader: "lodash"
-      }
-    ]
-  },
-  mode: "development",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "webpack-numbers.js",
-    library: "webpackNumbers",
-    libraryTarget: "umd"
-  },
-  externals: {
-    lodash: {
-      commonjs: "lodash",
-      commonjs2: "lodash",
-      amd: "lodash",
-      root: "_"
-    }
-  },
-  optimization: {
-    moduleIds: "hashed",
-    runtimeChunk: "single",
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all"
-        }
-      }
-    }
+    filename: "[name].boundle.js",
+    path: path.resolve(__dirname, "dist")
   }
 };
