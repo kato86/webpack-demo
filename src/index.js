@@ -1,34 +1,24 @@
 import _ from "lodash";
-import numRef from "./ref.json";
-// import Print from "./print";
-
-export function numToWord(num) {
-  return _.reduce(
-    numRef,
-    (accum, ref) => {
-      return ref.num === num ? ref.word : accum;
-    },
-    ""
-  );
-}
-
-export function wordToNum(word) {
-  return _.reduce(
-    numRef,
-    (accum, ref) => {
-      return ref.word === word && word.toLowerCase() ? ref.num : accum;
-    },
-    -1
-  );
-}
+import printMe from "./print";
 
 function component() {
   const element = document.createElement("div");
+  const btn = document.createElement("button");
 
   element.innerHTML = _.join(["Hello", "webpack"], " ");
-  // element.onclick = Print.bind(null, "Hello webpack!");
+
+  btn.innerHTML = "Click me and check the console!";
+  btn.onclick = printMe;
+
+  element.appendChild(btn);
 
   return element;
 }
 
 document.body.appendChild(component());
+
+if (module.hot) {
+  module.hot.accept("./print.js", function() {
+    console.log("Accepting the updated printMe module!");
+  });
+}
