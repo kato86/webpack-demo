@@ -11,6 +11,10 @@ module.exports = {
     contentBase: "./dist",
     hot: true
   },
+  mode: "development",
+  optimization: {
+    usedExports: true
+  },
   module: {
     rules: [
       {
@@ -26,7 +30,7 @@ module.exports = {
     })
   ],
   output: {
-    filename: "[name].boundle.js",
+    filename: "boundle.js",
     path: path.resolve(__dirname, "dist")
   }
 };
