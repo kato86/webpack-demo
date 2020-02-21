@@ -1,5 +1,5 @@
 import { cube } from "./math";
-import _ from "lodash";
+// import _ from "lodash";
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
@@ -16,7 +16,7 @@ function component() {
     "\n\n"
   );
   btn.innerHTML = "Click me and look at the console!";
-  divElement.innerHTML = _.join(["Hello", "webpack"], " ");
+  divElement.innerHTML = join(["Hello", "webpack"], " ");
   divElement.appendChild(br);
   divElement.appendChild(hr);
   divElement.appendChild(btn);
@@ -32,3 +32,15 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json())
+  .then(json => {
+    console.log(
+      "We retrieved some data! AND we're confident it will work on a variety of browser distributions."
+    );
+    console.log(json);
+  })
+  .catch(error =>
+    console.error("Something went wrong when fetching this data: ", error)
+  );
