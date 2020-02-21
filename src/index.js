@@ -1,5 +1,5 @@
 import { cube } from "./math";
-import _ from "lodash";
+// import _ from "lodash";
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
@@ -16,7 +16,7 @@ function component() {
     "\n\n"
   );
   btn.innerHTML = "Click me and look at the console!";
-  divElement.innerHTML = _.join(["Hello", "webpack"], " ");
+  divElement.innerHTML = join(["Hello", "webpack"], " ");
   divElement.appendChild(br);
   divElement.appendChild(hr);
   divElement.appendChild(btn);

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -7,10 +8,13 @@ module.exports = {
     app: "./src/index.js"
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: "Production"
+    new webpack.ProvidePlugin({
+      join: ["lodash", "join"]
     })
+    // new CleanWebpackPlugin(),
+    // new HtmlWebpackPlugin({
+    //   title: "Production"
+    // })
   ],
   output: {
     filename: "[name].boundle.js",
