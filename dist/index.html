@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Production</title>
+    <script>
+      const modernBrowser = "fetch" in window && "assign" in Object;
+
+      if (!modernBrowser) {
+        const scriptElement = document.createElement("script");
+
+        scriptElement.async = false;
+        scriptElement.src = "/polyfills.bundle.js";
+        document.head.appendChild(scriptElement);
+      }
+    </script>
   </head>
   <body>
-  <script type="text/javascript" src="app.boundle.js"></script></body>
+    <script type="text/javascript" src="app.boundle.js"></script>
+  </body>
 </html>

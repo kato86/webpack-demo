@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    polyfills: "./src/polyfills.js",
+    index: "./src/index.js"
   },
   plugins: [
     new webpack.ProvidePlugin({
