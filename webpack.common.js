@@ -1,33 +1,22 @@
 const path = require("path");
-// const webpack = require("webpack");
-// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
+  devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: /node-modules/
+        exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extesions: [".tsx", ".ts", ".js"]
+    extensions: [".tsx", ".ts", ".js"]
   },
   output: {
-    filename: "boundle.js",
+    filename: "bundle.js",
     path: path.resolve(__dirname, "dist")
   }
-  // plugins: [
-  //   new webpack.ProvidePlugin({
-  //     join: ["lodash", "join"]
-  //   })
-  //   // new CleanWebpackPlugin(),
-  //   // new HtmlWebpackPlugin({
-  //   //   title: "Production"
-  //   // })
-  // ],
 };
