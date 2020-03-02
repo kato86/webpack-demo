@@ -1,24 +1,33 @@
 const path = require("path");
-const webpack = require("webpack");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const webpack = require("webpack");
+// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: {
-    polyfills: "./src/polyfills.js",
-    index: "./src/index.js"
+  entry: "./src/index.ts",
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node-modules/
+      }
+    ]
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      join: ["lodash", "join"]
-    })
-    // new CleanWebpackPlugin(),
-    // new HtmlWebpackPlugin({
-    //   title: "Production"
-    // })
-  ],
+  resolve: {
+    extesions: [".tsx", ".ts", ".js"]
+  },
   output: {
-    filename: "[name].boundle.js",
+    filename: "boundle.js",
     path: path.resolve(__dirname, "dist")
   }
+  // plugins: [
+  //   new webpack.ProvidePlugin({
+  //     join: ["lodash", "join"]
+  //   })
+  //   // new CleanWebpackPlugin(),
+  //   // new HtmlWebpackPlugin({
+  //   //   title: "Production"
+  //   // })
+  // ],
 };
